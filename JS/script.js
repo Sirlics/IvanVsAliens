@@ -2,6 +2,7 @@ const dino = document.getElementById("dino");
 const enemy = document.getElementById("enemy");
 const text = document.getElementById("text");
 const fon = document.querySelector(".start")
+let score = 0;
 document.addEventListener("click" , function (event){
    dino.classList.add("jump")
 })
@@ -17,6 +18,7 @@ document.addEventListener("click" , function (event){
    else {
       dinoBottom=340;
    }
+
    //console.log(dinoBottom , enemyTop)
    //console.log(dinoRight , enemyLeft )
    if( dinoBottom <= enemyTop && 120>= enemyLeft && enemyLeft > 50 ){
@@ -29,6 +31,31 @@ document.addEventListener("click" , function (event){
       }
    }
 }, 10);
+if(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)){
+   let result = setInterval(() => {
+      let dinoBottom = dino.offsetHeight + parseInt(getComputedStyle(dino).getPropertyValue('top'))
+       let dinoRight = dino.offsetWidth + parseInt(getComputedStyle(dino).getPropertyValue('left'))
+       let enemyTop = parseInt(getComputedStyle(enemy).getPropertyValue('top'))
+       let enemyLeft =   parseInt(getComputedStyle(enemy).getPropertyValue('left'))
+       if(dinoBottom>120){
+          dinoBottom=115;
+       }
+       else {
+          dinoBottom=170;
+       }
+       //console.log(dinoBottom , enemyTop)
+       //console.log(dinoRight , enemyLeft )
+       if( dinoBottom <= enemyTop && 60>= enemyLeft && enemyLeft > 25 ){
+        const replay =  confirm(`СДОХ БЛЯТЬ ЛОХ БОТЯРА НАХУЙ`);
+          enemy.classList.remove("run");
+          fon.style.opacity="0"
+          if(replay== true || replay == false){
+             fon.style.opacity="1";
+             console.log("Ура")
+          }
+       }
+    }, 10);
+   }
 
 const start = document.querySelector(".start-botton");
 start.addEventListener("click" , function(event) {
@@ -42,12 +69,15 @@ start.addEventListener("click" , function(event) {
   
 });
 document.addEventListener("click" , function (event){
-   dino.classList.add("jump")
+   dino.classList.add("jump");
+  
 
 setTimeout(() => {
   
       dino.classList.remove("jump")
-
+    
+   
 }, 900);
 });
 
+      
