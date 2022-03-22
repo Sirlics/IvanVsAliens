@@ -108,22 +108,108 @@ h1, h2, h3, h4, h5, h6 {
           animation-timing-function: cubic-bezier(1, 1, 1, 1);
 }
 
-.wrapper {
-  overflow: hidden;
+@font-face {
+  font-family: 'redoctober';
+  src: url("../fonts/RedOctober.eot");
+  src: local("☺"), url("../fonts/RedOctober.woff") format("woff"), url("../fonts/RedOctober.ttf") format("truetype"), url("../fonts/RedOctober.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'mincraft';
+  src: url(../fonts/16596.eot);
+  src: url(../fonts/16596.eot?#iefix) format("embedded-opentype"), url(../fonts/16596.otf) format("otf"), url(../fonts/16596.svg#16596) format("svg"), url(../fonts/16596.ttf) format("truetype"), url(../fonts/16596.woff) format("woff"), url(../fonts/16596.woff2) format("woff2");
+}
+
+.body {
+  background: black;
+}
+
+.wraper-fon {
   width: 100%;
+  height: 710px;
+  position: absolute;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.wrapper {
+  overflow: auto;
+  width: 100%;
+  height: 100vh;
+  background: black;
+  background-size: 100% 100%;
+  position: relative;
+  display: block;
+}
+
+.content {
+  height: 100%;
+  z-index: 2;
+  width: 100%;
+}
+
+.score {
+  background-color: white;
+  height: 100px;
+  width: 500px;
+  z-index: 2;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  margin: 50px auto 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 30px;
+}
+
+.score__result {
+  font-size: 30px;
+  font-family: "Ubuntu";
+  font-weight: 400;
+  margin-right: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+}
+
+.score__result-best {
+  font-size: 28px;
+  font-family: "Ubuntu";
+  font-weight: 400;
+  display: none;
+}
+
+.score__result-num {
+  font-size: 30px;
+  font-family: "Ubuntu";
+  font-weight: 400;
+  margin-left: 5px;
 }
 
 .game {
   width: 600px;
   height: 350px;
   border: 1px solid black;
-  margin: 100px auto;
+  margin: 55px auto 0 auto;
   position: relative;
   background-image: url(/img/фон.jpg);
   background-size: 100% 100%;
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
+  z-index: 2;
   overflow: hidden;
 }
 
@@ -189,6 +275,10 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
 }
 
 .start-botton {
@@ -206,11 +296,12 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 20px;
 }
 
 .start-bottom-p {
   font-size: 20px;
-  font-family: "Red October";
+  font-family: 'redoctober';
   color: yellow;
 }
 
@@ -251,8 +342,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .start-botton:hover {
-  -webkit-box-shadow: 0px  2px 8px  yellow;
-          box-shadow: 0px  2px 8px  yellow;
+  -webkit-box-shadow: 0px  3px 10px  yellow;
+          box-shadow: 0px  3px 10px  yellow;
 }
 
 .text {
@@ -264,7 +355,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 360px;
     height: 192px;
     border: 1px solid black;
-    margin: 100px auto;
+    margin: 40px auto 0 auto;
     position: relative;
     background-image: url(/img/фон.jpg);
     background-size: 100% 100%;
@@ -373,5 +464,352 @@ h1, h2, h3, h4, h5, h6 {
             animation: jump 0.9s;
     -webkit-animation-timing-function: cubic-bezier(1, 1, 1, 1);
             animation-timing-function: cubic-bezier(1, 1, 1, 1);
+  }
+  .score {
+    background-color: white;
+    height: 80px;
+    width: 250px;
+    z-index: 2;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+    margin: 50px auto 0 auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 30px;
+  }
+  .score__result {
+    font-size: 30px;
+    font-family: "Ubuntu";
+    font-weight: 400;
+    margin-right: 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+  }
+  .score__result-best {
+    font-size: 28px;
+    font-family: "Ubuntu";
+    font-weight: 400;
+  }
+  .score__result-num {
+    font-size: 30px;
+    font-family: "Ubuntu";
+    font-weight: 400;
+    margin-left: 5px;
+  }
+}
+
+.setting {
+  width: 150px;
+  height: 40px;
+  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  pointer-events: visible;
+}
+
+.setting__bottom {
+  width: 150px;
+  height: 40px;
+  background-color: red;
+  opacity: 1;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.setting__bottom-p {
+  font-size: 18px;
+  font-family: "Red October";
+  color: yellow;
+}
+
+.setting__bottom:hover {
+  -webkit-box-shadow: 0px  2px 8px  yellow;
+          box-shadow: 0px  2px 8px  yellow;
+}
+
+.contentSecond {
+  margin: 0 auto;
+  width: 350px;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.closet {
+  position: absolute;
+  display: block;
+  top: 10px;
+  right: 100px;
+  width: 70px;
+  height: 70px;
+}
+
+.closetD {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  top: 2%;
+  right: 2%;
+}
+
+.closetD::after {
+  content: "";
+  width: 70px;
+  height: 10px;
+  background-color: gray;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.closetD::before {
+  content: "";
+  width: 70px;
+  height: 10px;
+  background-color: gray;
+  position: absolute;
+  bottom: 35px;
+  left: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.column {
+  width: 50%;
+  height: 240px;
+  font-size: 18px;
+  font-family: "mincraft";
+  color: white;
+  margin-top: 50px;
+}
+
+.column__menu-item {
+  width: 300px;
+  height: 50px;
+  background: #9e9d9d;
+  border: 5px solid black;
+  margin: 10px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.column__menu-donate {
+  width: 100%;
+  height: 100%;
+  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.column__menu-donate-p {
+  color: white;
+  text-decoration: none;
+}
+
+.column__menu-itemB {
+  width: 300px;
+  height: 50px;
+  background: #9e9d9d;
+  border: 5px solid black;
+  margin: 10px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mishkf-body {
+  display: none;
+}
+
+.mishka {
+  width: 100%;
+  height: 700px;
+}
+
+.closet-contein {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+}
+
+.closM {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.closM::after {
+  content: "";
+  width: 70px;
+  height: 10px;
+  background-color: red;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.closM::before {
+  content: "";
+  width: 70px;
+  height: 10px;
+  background-color: red;
+  position: absolute;
+  bottom: 35px;
+  left: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+@media (min-width: 600px) {
+  .contentSecond {
+    margin: 0 auto;
+    width: 700px;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+  }
+  .column {
+    width: 50%;
+    max-height: 700px;
+    font-size: 18px;
+    font-family: "mincraft";
+    color: white;
+    margin-top: 120px;
+  }
+  .newDino {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 20px;
+  }
+  .newDino-img {
+    width: 100%;
+    height: 100%;
+  }
+  .oldDino-img {
+    width: 100%;
+    height: 100%;
+  }
+  .oldDino {
+    width: 250px;
+    height: 250px;
+  }
+  .pashaDino {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+.title-dino {
+  width: 200px;
+  position: absolute;
+  top: 5%;
+  left: 2%;
+}
+
+.title-dino-h2 {
+  font-size: 25px;
+  font-family: 'mincraft';
+  color: white;
+}
+
+.r {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 599px) {
+  .newDino {
+    width: 150px;
+    height: 150px;
+  }
+  .newDino-img {
+    width: 100%;
+    height: 100%;
+  }
+  .oldDino-img {
+    width: 100%;
+    height: 100%;
+  }
+  .oldDino {
+    width: 150px;
+    height: 150px;
+  }
+  #marg {
+    margin-top: 20px;
+  }
+  .pashaDino {
+    width: 150px;
+    height: 150px;
+  }
+  #columnMSecond {
+    margin-top: 115px;
+  }
+  .title-name {
+    margin-top: 20px;
   }
 }

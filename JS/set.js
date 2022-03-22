@@ -1,8 +1,9 @@
 const dino = document.getElementById("dino");
 const enemy = document.getElementById("enemy");
 const text = document.getElementById("text");
-const fon = document.querySelector(".start")
-let score = 0;
+const fon = document.getElementById("start")
+const set = document.getElementById("set");
+
 document.addEventListener("click" , function (event){
    dino.classList.add("jump")
 })
@@ -28,6 +29,9 @@ document.addEventListener("click" , function (event){
       if(replay== true || replay == false){
          fon.style.opacity="1";
          console.log("Ура")
+         divScore.textContent = "0";
+         set.style.pointerEvents="visible";
+          fon.style.opacity="1";
       }
    }
 }, 10);
@@ -49,10 +53,19 @@ if(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)){
         const replay =  confirm(`СДОХ БЛЯТЬ ЛОХ БОТЯРА НАХУЙ`);
           enemy.classList.remove("run");
           fon.style.opacity="0"
-          if(replay== true || replay == false){
+          if( replay == false){
+            divScore.textContent = "0";
+            set.style.pointerEvents="visible";
              fon.style.opacity="1";
-             console.log("Ура")
+            
           }
+          if( replay == true){
+
+            divScore.textContent="0";
+            set.style.pointerEvents="visible";
+            fon.style.opacity="1";
+            
+         }
        }
     }, 10);
    }
@@ -61,6 +74,7 @@ const start = document.querySelector(".start-botton");
 start.addEventListener("click" , function(event) {
   console.log("Работает");
   fon.style.opacity="0";
+  set.style.pointerEvents="none";
   setTimeout(() => {
    enemy.classList.add("run")
   }, 3000);
@@ -80,4 +94,28 @@ setTimeout(() => {
 }, 900);
 });
 
-      
+const divScore = document.querySelector(".score__result-num");
+const divScoreBest = document.querySelector(".score__result-best");
+/*
+setInterval(() => {
+   fonOP = parseInt( getComputedStyle(fon).getPropertyValue("opacity"));
+}, 10);*/
+
+
+document.addEventListener("click", function(event){
+   let countrClickScore = divScore.textContent;
+   divScore.textContent =  parseInt(countrClickScore) + 1 ;
+    
+});
+
+let valuePers = localStorage.getItem("number");
+console.log(valuePers);
+if(valuePers==2){
+   dino.innerHTML=`<img src="/img/Иван.jpg" alt="" class="dino-img">`
+}
+if(valuePers==1){
+   dino.innerHTML=`<img src="/img/Кира.jpg" alt="" class="dino-img">`
+}
+if(valuePers==3){
+   dino.innerHTML=`<img src="/img/паша.jpg" alt="" class="dino-img">`
+}
